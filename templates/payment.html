@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="payment-container">
+        <h2>Оплата банковской картой</h2>
+        <form id="payment-form">
+            <div class="form-group">
+                <label for="card-number">Номер карты</label>
+                <input type="text" id="card-number" name="card-number" maxlength="19" placeholder="Введите номер карты" required>
+            </div>
+
+            <div class="form-group">
+                <label for="card-holder">Имя владельца</label>
+                <input type="text" id="card-holder" name="card-holder" placeholder="Введите имя владельца (на латинице)" required>
+            </div>
+
+            <div class="form-group">
+                <label for="expiry-date">Срок действия</label>
+                <input type="text" id="expiry-date" name="expiry-date" placeholder="ММ/ГГ" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cvv">CVV код</label>
+                <input type="text" id="cvv" name="cvv" maxlength="3" placeholder="Введите CVV" required>
+            </div>
+
+            <button type="submit">Оплатить</button>
+        </form>
+
+        <h3>Или оплатите через QR-код</h3>
+        <button class="qr-button" onclick="window.location.href='{{ url_for('qr_payment') }}'">Перейти к оплате по QR-коду</button>
+    </div>
+
+    <script>
+        // Функция для валидации формы
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const cardNumber = document.getElementById('card-number').value;
+            const cardHolder = document.getElementById('card-holder').value;
+            const expiryDate = document.getElementById('expiry-date').value;
+            const cvv = document.getElementById('cvv').value;
+
+            const cardNumberRegex = /^\d{4}\s?\d{4}\s?\d{4}\s?\d{4}$/; // 16 цифр, можно вводить с пробелами
+            const cardHolderRegex = /^[A-Z]+\s[A-Z]+$/; // Имя на латинице заглавными буквами
+            const expiryDateRegex = /^(0[1-9]|1[0-2])\/\d{2}$/; // ММ/ГГ (например, 06/33)
+            const cvvRegex = /^\d{3}$/; // 3 цифры
+
+            // Проверка номера карты
+            if (!cardNumberRegex.test(cardNumber)) {
+                alert('Введите корректный номер карты (16 цифр, пример: 2202 2060 8421 1111).');
+                return;
+            }
+
+            // Проверка имени владельца
+            if (!cardHolderRegex.test(cardHolder)) {
+                alert('Введите имя владельца латинскими заглавными буквами (например: A. IVANOV).');
+                return;
+            }
+
+            // Проверка срока действия
+            if (!expiryDateRegex.test(expiryDate)) {
+                alert('Введите корректный срок действия в формате ММ/ГГ (например, 06/33).');
+                return;
+            }
+
+            // Проверка CVV
+            if (!cvvRegex.test(cvv)) {
+                alert('Введите корректный CVV код (3 цифры).');
+                return;
+            }
+
+            alert("Платеж успешно проведен!");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,412 @@
+/* Основные стили */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header-top {
+    background-color: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.catalog-container {
+    margin-right: 20px; /* Отступ между кнопкой "Каталог" и полем поиска */
+}
+
+.catalog-button {
+    padding: 8px 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%; /* По умолчанию спрятан за пределами экрана */
+    width: 25%;
+    height: 100%;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    z-index: 1000;
+    overflow-y: auto;
+    transition: left 0.3s ease; /* Плавное открытие */
+}
+
+.sidebar.active {
+    left: 0; /* Показываем сайдбар */
+}
+
+.catalog-container:hover .sidebar {
+    display: block;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar a {
+    color: #333;
+    text-decoration: none;
+}
+
+/* Image Slider */
+.slider {
+    width: 50%;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 25px;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Search and Buttons */
+.header-middle {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Отступ между полем поиска и кнопкой поиска */
+}
+
+.search-bar {
+    width: 100%;
+    padding: 8px; /* Сделаем поле поиска чуть меньше */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.offer-item {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1 1 calc(33.333% - 10px);
+}
+
+.offer-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.offer-item h3 {
+    margin: 10px 0;
+}
+
+.offer-item .price {
+    font-size: 1.2rem;
+    color: #f90;
+}
+
+.buy-button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buy-button:hover {
+    background-color: #f90;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #f90;
+    border: none;
+    color: #ff0000
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.2s ease;
+}
+
+.button:hover {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+.button svg {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 5px;
+    fill: currentColor;
+}
+
+.button span {
+    font-size: 0.8rem;
+    text-align: center;
+}
+/* Offers Section */
+.offers {
+    margin-top: 20px;
+}
+
+.offers-grid {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.offer-item {
+    background-color: #f4f4;
+}
+.payment-container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f90;
+}
+
+#qr-code {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#qr-code img {
+    width: 200px;
+}
+.payment-container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.qr-button {
+    background-color: #007bff;
+    margin-top: 10px;
+}
+
+.qr-button:hover {
+    background-color: #0056b3;
+}
+
+#qr-code {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#qr-code img {
+    width: 200px;
+}
+.search-icon {
+    padding: 8px;
+    background-color: #f90;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Фиксируем ширину кнопки поиска */
+    height: 40px; /* Высота для выравнивания */
+}
+qr-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.qr-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.qr-container p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.qr-code-wrapper {
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-bottom: 20px;
+    
+    /* Flexbox для центрирования */
+    display: flex;
+    justify-content: center;  /* Горизонтальное центрирование */
+    align-items: center;      /* Вертикальное центрирование */
+    height: 100%;             /* Высота контейнера (при необходимости) */
+}
+
+
+.qr-container button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.qr-container button:hover {
+    background-color: #218838;
+        }

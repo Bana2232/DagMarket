@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<div class="home-banner">
+    <h1>Добро пожаловать на маркетплейс народов Дагестана</h1>
+    <p>Откройте для себя уникальные товары от местных производителей.</p>
+</div>
+
+<div class="product-list">
+    <!-- Пример отображения товаров -->
+    <div class="product-card">
+        <img src="{{ url_for('static', filename='images/product1.jpg') }}" alt="Товар 1">
+        <h2>Товар 1</h2>
+        <p>Описание товара...</p>
+        <button>Купить</button>
+    </div>
+    <!-- Другие товары... -->
+</div>
+{% endblock %}

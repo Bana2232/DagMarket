@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roso</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-top">
+        <div class="container">
+            <!-- Логотип -->
+            <div class="header-left">
+                <a href="#" class="logo">Roso</a>
+                
+                <!-- Кнопка Каталог -->
+                <div class="catalog-container">
+                    <button class="catalog-button">Каталог</button>
+                    <div class="sidebar">
+                        <ul>
+                            <li><a href="#">Все товары</a></li>
+                            <li><a href="#">Электроника</a></li>
+                            <li><a href="#">Одежда</a></li>
+                            <li><a href="#">Книги</a></li>
+                            <li><a href="#">Сувениры</a></li>
+                            <li><a href="#">Услуги</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Поиск -->
+            <div class="header-middle">
+                <input type="text" class="search-bar" placeholder="Поиск...">
+                <button class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Иконки и кнопки -->
+            <div class="header-right">
+                <!-- Войти -->
+                <div class="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                    <span>Войти</span>
+                </div>
+
+                <!-- Заказы -->
+                <div class="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7 18c-1.1 0-1.99-.9-1.99-2L5 6c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H7zm0-12h10v10H7V6zm0 14h10v2H7v-2z"/>
+                    </svg>
+                    <span>Заказы</span>
+                </div>
+
+                <!-- Избранное -->
+                <div class="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <span>Избранное</span>
+                </div>
+
+                <!-- Корзина -->
+                <div class="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7 4h-2V2h2v2zm10-2v2h-2V2h2zm-3 0v2H10V2h4zm4 4l1.1 10.15c.09.75-.49 1.35-1.25 1.35h-12c-.76 0-1.34-.6-1.25-1.35L5 6h14z"/>
+                    </svg>
+                    <span>Корзина</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Image Slider -->
+    <div class="slider">
+        <div class="slide active">
+            <img src="{{ url_for('static', filename='images/photo1.png') }}" alt="Фото 1">
+        </div>
+        <div class="slide">
+            <img src="{{ url_for('static', filename='images/photo2.png') }}" alt="Фото 2">
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+    <div class="container">
+        <section class="offers">
+            <h2>Лучшие предложения</h2>
+            <div class="offers-grid">
+                <!-- Пример товара -->
+                <div class="offer-item">
+                    <img src="images/pht1.jpg" alt="Товар 1">
+                    <h3>Товар 1</h3>
+                    <p>Кубик рубик 2</p>
+                    <span class="price">349 руб.</span>
+                    <button class="buy-button" onclick="window.location.href='/payment'">Купить</button>
+                </div>
+
+                <div class="offer-item">
+                    <img src="images/pht1.jpg" alt="Товар 1">
+                    <h3>Товар 2</h3>
+                    <p>Описание товара 1</p>
+                    <span class="price">1000 руб.</span>
+                    <button class="buy-button" onclick="window.location.href='/payment'">Купить</button>
+                </div>
+                <!-- Добавьте больше товаров по аналогии -->
+            </div>
+        </section>
+    </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Roso. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
